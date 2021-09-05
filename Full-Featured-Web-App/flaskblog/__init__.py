@@ -23,3 +23,5 @@ from flaskblog.posts.routes import posts
 app.register_blueprint(posts)
 from flaskblog.main.routes import main
 app.register_blueprint(main)
+from flaskblog.errors.handlers import errors
+app.register_blueprint(errors)
