@@ -1,6 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 
-{% block content%}
-<h1>Home Page</h1>
+{% block content%}<br>
+<h1 align="center">Notes</h1>
+<ul class="list-group list-group-flush" id="notes">
+	{% for note in user.notes %}
+		<li class="list-group-item">{{ note.data }} <div style="float:right; display: inline"><button type="button" class="btn btn-danger"><a style="color: white; text-decoration: none" href="/delete/{{ note.id }}">Delete Note</a></button></div></li>
+	{% endfor %}
+</ul>
+<form method="POST">
+	<textarea autofocus name="note" id="note" class="form-control" required></textarea><br><br>
+	<div align="center">
+		<button type="submit" class="btn btn-primary">Add Note</button>
+	</div>
+</form>
 {% endblock %}
